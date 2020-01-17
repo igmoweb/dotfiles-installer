@@ -1,7 +1,7 @@
 {
   "name": "igmoweb/dotfiles-installer",
   "type": "composer-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Dotfiles Composer installer",
   "autoload": {
     "psr-0": {"DotFiles": "src/"}

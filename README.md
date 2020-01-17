@@ -35,8 +35,14 @@ In order to specify a dotfiles repo for your project/s, you need to add the foll
       "type": "git",
       "url": "https://github.com/youruser/dotfiles-repo.git"
     },
+    {
+      "type": "git",
+      "url": "https://github.com/igmoweb/dotfiles-installer.git"
+    }
   ],
 ```
+
+### 3. Specify the list of dotfiles you need for your project
 
 Then add a list of dotfiles that you'd like to bring into inside `extra.dotfiles` property. For example:
 
@@ -57,3 +63,12 @@ Then add a list of dotfiles that you'd like to bring into inside `extra.dotfiles
 Now install your dotfiles repository as a dependency in composer:
 
 `composer require youruser/dotfiles-repo:dev-master --dev`
+
+The installer will copy any dotfile you specified in your `composer.json` to your root file.
+
+Do the same in any other project you own and you'll be able to share your dotfiles across different projects.
+
+## Some notes
+
+- `composer update` won't copy the files again. If you want to update the package version, delete your `vendor` folder and run `composer install/require/update` again.
+- If a dotfile exists already in your root folder, it won't be overwritten. This is because you could need to tweak some dotfiles depending on your project and you don't want to overwrite those. If you need a refresh of the files because you're upgrading your dotfiles repository version, make sure that you delete the dotfiles before upgrading. 
